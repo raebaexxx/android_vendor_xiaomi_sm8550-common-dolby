@@ -8,6 +8,7 @@
 # Dolby XML
 PRODUCT_COPY_FILES += \
     vendor/xiaomi/sm8550-common-dolby/proprietary/vendor/etc/dolby/dax-default.xml:$(TARGET_COPY_OUT_VENDOR)/etc/dolby/dax-default.xml \
+    vendor/xiaomi/sm8550-common-dolby/proprietary/odm/etc/dolby/dax-default.xml:$(TARGET_COPY_OUT_ODM)/etc/dolby/dax-default.xml \
     vendor/xiaomi/sm8550-common-dolby/proprietary/vendor/etc/init/dolbycodec2.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/dolbycodec2.rc \
     vendor/xiaomi/sm8550-common-dolby/proprietary/vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.hardware.dms@2.0-service.rc \
     vendor/xiaomi/sm8550-common-dolby/proprietary/vendor/etc/init/vendor.dolby.media.c2@1.0-service.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/vendor.dolby.media.c2@1.0-service.rc \
@@ -42,6 +43,12 @@ PRODUCT_PACKAGES += \
     libcodec2_store_dolby \
     libdapparamstorage \
     libdeccfg \
+    libdlbpreg \
+    libswspatializer_ext \
+    libdlbvol \
+    libhwdap \
+    libspatializer \
+    libswspatializer \
     libdlbdsservice \
     libdolbyottcameracontrol \
     libeglcore \
