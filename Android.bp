@@ -751,6 +751,20 @@ prebuilt_etc_xml {
     soc_specific: true,
 }
 
+// Binds IComponentStore/default1 (Dolby audio) and IComponentStore/dolby
+// (Dolby Vision) to android.hardware.media.c2@1.0, so the AC-3 / E-AC-3 /
+// E-AC-3 JOC / AC-4 decoders in libcodec2_store_dolby.so are actually
+// discoverable. Without this the service starts but media_server finds no
+// Dolby decoder and such tracks play as silence.
+prebuilt_etc_xml {
+    name: "vendor.dolby.media.c2@1.0-service.xml",
+    owner: "xiaomi",
+    src: "proprietary/vendor/etc/vintf/manifest/vendor.dolby.media.c2@1.0-service.xml",
+    filename_from_src: true,
+    sub_dir: "vintf/manifest",
+    soc_specific: true,
+}
+
 cc_prebuilt_binary {
     name: "dolbycodec2",
     owner: "xiaomi",

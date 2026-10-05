@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2026 The LineageOS Project -->
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<!--
+     Bind the two Dolby Codec2 component stores to android.hardware.media.c2@1.0.
+
+     Xiaomi ships these same two fqnames in its own
+     vendor/etc/vintf/manifest/c2_manifest_vendor.xml, annotated "DOLBY ADD",
+     but device/xiaomi/sm8550-common/extract-files.py strips them from the blob
+     it installs, so on this ROM the Dolby store is never reachable: no store is
+     bound to the HAL, media_server discovers no Dolby decoder, and any track
+     whose audio is AC-3, E-AC-3, E-AC-3 JOC or AC-4 plays as silence while AAC
+     keeps working.
+
+     Declaring them in a fragment of our own restores AC-3/E-AC-3/AC-4 decoding
+     without depending on which c2_manifest_vendor.xml copy wins extraction.
+-->
+<manifest version="1.0" type="device">
+    <hal format="hidl">
+        <name>android.hardware.media.c2</name>
+        <transport>hwbinder</transport>
+        <!-- Dolby audio: c2.dolby.eac3.decoder, c2.dolby.ac4.decoder -->
+        <fqname>@1.0::IComponentStore/default1</fqname>
+        <!-- Dolby Vision -->
+        <fqname>@1.0::IComponentStore/dolby</fqname>
+    </hal>
+</manifest>

@@ -62,4 +62,5 @@ PRODUCT_PACKAGES += \
     vendor.dolby.hardware.dms.xml \
     dolbycodec2 \
     vendor.dolby.hardware.dms@2.0-service \
-    vendor.dolby.media.c2@1.0-service
+    vendor.dolby.media.c2@1.0-service \
+    vendor.dolby.media.c2@1.0-service.xml
